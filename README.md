@@ -11,7 +11,7 @@ Um sistema básico de gerenciamento de tarefas em C. Implementa operações CRUD
 gcc -o task-manager main.c task-manager.c -Wall -std=c99
 ```
 
-### Exemplo Rápido
+### Demonstração Rápida
 
 ```c
 #include "task-manager.h"
