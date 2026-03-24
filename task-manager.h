@@ -2,16 +2,18 @@
 #define TASK_MANAGER_H
 
 enum TaskPriority {
-    PRIORITY_LOW,
-    PRIORITY_MEDIUM,
-    PRIORITY_HIGH
+    PRIORIDADE_BAIXA,
+    PRIORIDADE_MEDIA,
+    PRIORIDADE_ALTA
 };
 
-struct Task {
+typedef struct{
     int id;
-    char nome[100];
+    char *nameTask;
     int is_completed;
     enum TaskPriority prioridade;
-};
+} Task;
+
+Task* create_task(int id, const char* nameTask, enum TaskPriority prioridade);
 
 #endif
