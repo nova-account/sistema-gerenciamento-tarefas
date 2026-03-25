@@ -48,7 +48,7 @@ int main() {
 
 ### Operações CRUD
 
-#### ✏️ CRIAR
+####  CRIAR
 **`create_task(id, nome, prioridade)`**
 - Cria um novo nó de tarefa
 - Retorna ponteiro para tarefa alocada
@@ -58,7 +58,7 @@ int main() {
 Task* task = create_task(1, "Minha Tarefa", PRIORITY_HIGH);
 ```
 
-#### 📖 LER
+#### LER
 **`list_all_tasks(tarefas, num_tarefas)`**
 - Exibe todas as tarefas com status e prioridade
 - Mostra [X] para concluída, [ ] para pendente
@@ -83,7 +83,7 @@ list_pending_tasks(tasks, num_tasks);
 list_completed_tasks(tasks, num_tasks);
 ```
 
-#### 🔄 ATUALIZAR
+####  ATUALIZAR
 **`mark_task_completed(tarefa)`**
 - Marca uma tarefa como concluída
 - Define flag `is_completed` para 1
@@ -93,7 +93,7 @@ list_completed_tasks(tasks, num_tasks);
 mark_task_completed(tasks[0]);
 ```
 
-#### 🗑️ DELETAR
+####  DELETAR
 **`remove_task(&tarefas, &num_tarefas, id_tarefa)`**
 - Remove tarefa pelo ID
 - Libera memória alocada
@@ -132,6 +132,7 @@ typedef struct {
 | `remove_task()` | Deletar tarefa por ID |
 | `get_priority_string()` | Converter enum prioridade para texto |
 | `free_task_system()` | Limpeza de memória |
+| `task_due_to()` | Vencidamento da tarefa |
 
 ### Exemplo de Saída
 
