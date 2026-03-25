@@ -129,7 +129,7 @@ typedef struct {
 | `list_pending_tasks()` | Exibir apenas pendentes |
 | `list_completed_tasks()` | Exibir apenas concluídas |
 | `mark_task_completed()` | Marcar como concluída |
-| `remove_task()` | Deletar tarefa por ID |
+| `remove_task()` | Deletar tarefa por ID ou Nome |
 | `get_priority_string()` | Converter enum prioridade para texto |
 | `free_task_system()` | Limpeza de memória |
 | `task_due_to()` | Vencidamento da tarefa |
