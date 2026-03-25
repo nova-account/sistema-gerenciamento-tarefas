@@ -17,7 +17,7 @@ gcc -o task-manager main.c task-manager.c -Wall -std=c99
 #include "task-manager.h"
 
 int main() {
-    struct TaskNode* tasks[100];
+    Task* tasks[100];
     int num_tasks = 0;
 
     // CRIAR - Adicionar novas tarefas
