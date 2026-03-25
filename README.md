@@ -55,7 +55,7 @@ int main() {
 - Prioridade: `PRIORITY_LOW`, `PRIORITY_MEDIUM`, `PRIORITY_HIGH`
 
 ```c
-struct TaskNode* task = create_task(1, "Minha Tarefa", PRIORITY_HIGH);
+Task* task = create_task(1, "Minha Tarefa", PRIORITY_HIGH);
 ```
 
 #### 📖 LER
@@ -112,12 +112,12 @@ enum TaskPriority {
     PRIORITY_HIGH      // Alta
 };
 
-struct TaskNode {
+typedef struct {
     int id;                    // Identificador único da tarefa
     char name[100];            // Descrição da tarefa
     int is_completed;          // 0 = pendente, 1 = concluída
     enum TaskPriority priority;
-};
+} Task;
 ```
 
 ### Referência de Funções
