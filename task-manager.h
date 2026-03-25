@@ -11,9 +11,13 @@ typedef struct{
     int id;
     char *nameTask;
     int is_completed;
-    enum TaskPriority prioridade;
+    enum TaskPriority priority;
+    
+    int due_day;
+    int due_month;
+    int due_year;
 } Task;
 
-Task* create_task(int id, const char* nameTask, enum TaskPriority prioridade);
+Task* create_task(int id, const char* nameTask, enum TaskPriority priority);
 
 #endif
