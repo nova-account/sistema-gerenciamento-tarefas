@@ -36,12 +36,13 @@ flowchart LR
     G --> H["API"]
     CRUD --> H
     H --> T1
-    C3 --> T1["Testes e Documentação do Sistema"]
+    C3 --> T1["Testes"]
     F1 --> T1
     D5 --> T1
     E5 --> T1
     U1 --> T1
-    T1 --> Z["Fim do Sistema"]
+    T1 --> T2["Documentação do Sistema"]
+    T2 --> Z["Fim do Sistema"]
 
     style C1 fill:#a3c1ad,color:#1f1f1f
     style C fill:#C8E6C9,color:#1f1f1f
@@ -68,6 +69,7 @@ flowchart LR
     style B fill:#7f8c7f,color:#1f1f1f
     style CRUD fill:#7f8c7f,color:#1f1f1f
     style T1 fill:#7f8c7f,color:#1f1f1f
+    style T2 fill:#7f8c7f,color:#1f1f1f
     style Z fill:#7f8c7f,color:#1f1f1f
     style s2 fill:#7f8c7f,color:#1f1f1f
     style s1 fill:#7f8c7f,color:#1f1f1f
