@@ -26,7 +26,6 @@ flowchart LR
   end
  subgraph s2["Design"]
         G["Frontend"]
-        H["API"]
   end
     A["Início do Sistema"] --> B["Escolher Operação"]
     B --> C & D & E & F
@@ -34,8 +33,9 @@ flowchart LR
     D --> D1 & D2 & D3 & D4 & D5
     E --> E1 & E2 & E3 & E4 & E5
     F --> F1
-    G --> H
-    H --> CRUD
+    G --> H["API"]
+    CRUD --> H
+    H --> T1
     C3 --> T1["Testes e Documentação do Sistema"]
     F1 --> T1
     D5 --> T1
