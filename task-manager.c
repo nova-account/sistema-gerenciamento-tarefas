@@ -4,5 +4,23 @@
 #include "task-manager.h"
 
 
-Task* create_task(int id, const char* nameTask, enum TaskPriority priority, int day, int month, int year){
+// função apenas para coleta da criação da Atividade
+Task* create_task_coleta(){
+   int id;
+   char nameTask[100];
+   int priority;
+
+
+    printf("ID da ATIVIDADE : ");
+    scanf("%d", &id);
+    
+    getchar(); // limpa o buffer
+
+    printf("Qual a Atividade ? : ");
+    fgets(nameTask, 100, stdin);
+
+    printf("Qual a prioridade?: ");
+    scanf("%d", &priority);
+
+    return create_task(id,nameTask,priority);
 }
