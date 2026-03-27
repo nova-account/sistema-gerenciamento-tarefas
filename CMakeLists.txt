@@ -26,4 +26,4 @@ else()
 endif()
 
 # Explicitamente lista source files
-add_executable(main main.c task-manager.c "task-manager.h")
+add_executable(main main.c task-manager.c)
