@@ -3,47 +3,57 @@
 #include <string.h>
 #include "task-manager.h"
 
-
-// função apenas para coleta da criação da Atividade
-Task* create_task_coleta(){
-   int id;
-   char nameTask[100];
-   int priority;
-
-
-    printf("ID da ATIVIDADE : ");
-    scanf("%d", &id);
-
-    getchar(); // limpa os espaços vazios
-
-    printf("Qual a Atividade ? : ");
-    fgets(nameTask, 100, stdin);
-
-    printf("Qual a prioridade?: ");
-    scanf("%d", &priority);
-
-    return create_task(id,nameTask,priority);
+static const char *prioridade_str(TaskPriority p) {
+    switch (p) {
+        case PRIORIDADE_BAIXA: return "Baixa";
+        case PRIORIDADE_MEDIA: return "Média";
+        case PRIORIDADE_ALTA:  return "Alta";
+        default:               return "?";
+    }
+}
+ 
+void create_task(Task *tarefas, int *total) {
+    if (*total >= 100) {
+        printf("Lista cheia!\n");
+        return;
+    }
+ 
+    Task *t = &tarefas[*total]; /* aponta para a próxima posição livre */
+ 
+    t->id           = *total + 1;
+    t->is_completed = 0;
+ 
+    printf("Nome da tarefa: ");
+    getchar(); /* limpa o '\n' que sobrou do scanf do menu */
+    fgets(t->nameTask, MAX_NOME, stdin);
+    /* fgets inclui o '\n' no final — removemos aqui */
+    t->nameTask[strcspn(t->nameTask, "\n")] = '\0';
+ 
+    int p;
+    printf("Prioridade (0=Baixa, 1=Média, 2=Alta): ");
+    scanf("%d", &p);
+    t->priority = (TaskPriority)p;
+ 
+    (*total)++; /* só incrementa depois que tudo deu certo */
+ 
+    printf("\nTarefa \"%s\" criada com sucesso!\n", t->nameTask);
 }
 
-// é necessario criar uma função MALLOC para armazenar os dados pois uma função normal não guarda os dados !
-
-Task* create_task(int id, const char* nameTask, enum TaskPriority priority){
-    Task *ponteiro = malloc(sizeof(Task));
-      if (!ponteiro) return NULL; // sempre em um MAllOC, deve verificar se funcionou
-
-    ponteiro->id=id;
-    ponteiro->is_completed = 0;
-    ponteiro->priority = priority;
-
-// par armazenar um texto é bem complicado e precisa utilizar o STRCPY mas antes precisa alocar ele primeiro
-                    // essa função aloca ele e após isso utiliza-se o STRCPY.  
-
-    ponteiro->nameTask = malloc(strlen(nameTask) + 1); // é uma verificação
-    if (!ponteiro->nameTask){
-        free(ponteiro);        
-        return NULL;
+void list_tasks(Task *tarefas, int total) {
+    if (total == 0) {
+        printf("Nenhuma tarefa cadastrada.\n");
+        return;
     }
-    strcpy(ponteiro->nameTask, nameTask);
-
-    return ponteiro;
+ 
+    printf("\n%-4s %-25s %-8s %s\n", "ID", "Nome", "Prior.", "Status");
+    printf("─────────────────────────────────────────────\n");
+ 
+    for (int i = 0; i < total; i++) {
+        Task *t = &tarefas[i];
+        printf("%-4d %-25s %-8s %s\n",
+            t->id,
+            t->nameTask,
+            prioridade_str(t->priority),
+            t->is_completed ? "Concluída" : "Pendente");
+    }
 }
