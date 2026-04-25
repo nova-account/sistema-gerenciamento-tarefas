@@ -57,3 +57,22 @@ void list_tasks(Task *tarefas, int total) {
             t->is_completed ? "Concluída" : "Pendente");
     }
 }
+
+
+// função para deletar uma tarefa pelo ID
+
+void delete_task(Task *tarefas, int *total) {
+    int opcao;
+
+    printf("Digite o ID da tarefa que deseja deletar: ");
+    scanf("%d", &opcao);
+
+    for (int i = 0; i < *tarefas; i++)
+    {
+        if (tarefas(i).id == opcao)
+        {
+            
+        }
+        
+    }
+    // função incompleta
